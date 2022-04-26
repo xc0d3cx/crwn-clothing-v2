@@ -4,7 +4,8 @@ import {
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
@@ -20,7 +21,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -46,7 +47,6 @@ export const creatUserDocumentFromAuth = async (userAuth, additionalInfo={}) => 
   //if userAuth is null then exit
   if(!userAuth) return;
   
-
   const userDocRef = doc(db, "users", userAuth.uid);
   console.log(userDocRef);
 
@@ -67,7 +67,6 @@ export const creatUserDocumentFromAuth = async (userAuth, additionalInfo={}) => 
         ...additionalInfo,
       });
 
-      
     } catch (error) {
       console.log("error creating user", error);
     }
@@ -76,10 +75,17 @@ export const creatUserDocumentFromAuth = async (userAuth, additionalInfo={}) => 
   return userDocRef;
 };
 
-
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   // if email or password is null then exit
   if(!email || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
 }
+
+export const SignInEmailAndPassword = async (email, password) => {
+  // if email or password is null then exit
+  if(!email || !password) return;
+
+  return await signInWithEmailAndPassword(auth, email, password);
+}
+

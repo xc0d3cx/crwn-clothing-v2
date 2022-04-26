@@ -4,8 +4,8 @@ import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import Shop from './routes/shop/shop.component';
 import Contact from './routes/contact/contact.component';
-import SignIn from './routes/sign-in/sign-in.component';
-import SignUpForm from './component/sign-up-form/sign-up-form.component';
+import Auth from './routes/auth/auth.component';
+//import SignUpForm from './component/sign-up-form/sign-up-form.component';
 
 const App = () => {
   return (
@@ -14,8 +14,8 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="sign-in" element={<SignIn />} />
-        <Route path="sign-up" element={<SignUpForm />} />
+        <Route path="auth" element={<Auth />} />
+        {/* <Route path="sign-up" element={<SignUpForm />} /> */}
       </Route>
     </Routes>
   );
