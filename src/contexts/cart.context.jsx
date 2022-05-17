@@ -78,17 +78,17 @@ export const CartProvider = ({ children }) => {
 
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
-    console.log("item added");
+    //console.log("item added");
   };
 
   const removeItem = (productToRemove) => {
     setCartItems(removeCartItem(cartItems, productToRemove));
-    console.log("item removed");
+    //console.log("item removed");
   };
 
   const removeItemAll = (productToRemove) => {
     setCartItems(removeCartItemAll(cartItems, productToRemove));
-    console.log("all quant of item removed");
+    //console.log("all quant of item removed");
   };
 
   const value = {

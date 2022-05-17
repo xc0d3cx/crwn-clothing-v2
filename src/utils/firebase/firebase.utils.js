@@ -52,7 +52,7 @@ export const addcollectionAndDocuments = async (
   });
 
   await batch.commit();
-  console.log("DB done ++++");
+  //console.log("DB done ++++");
 };
 
 export const getCategoriesAndDocuments = async () => {
@@ -98,7 +98,7 @@ export const creatUserDocumentFromAuth = async (
 
   const userSnapShot = await getDoc(userDocRef);
   //console.log(userSnapShot);
-  console.log("user exists: ", userSnapShot.exists());
+  //console.log("user exists: ", userSnapShot.exists());
 
   // new user
   if (!userSnapShot.exists()) {
